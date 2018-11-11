@@ -1,0 +1,36 @@
+<% include partials/header %>
+
+<!-- most basic layout element in Bootstrap, required when using our default grid system -->
+<div class="container">
+	<!-- a container for introductory content or a set of navigational links -->
+	<header class="jumbotron"> 
+		<!-- create white spacing on the side -->
+		<div class="container">
+			<h1>Welcome to YelpCamp!</h1>
+			<p>View the handpicked campgrounds around the world</p>
+			<p>
+				<a class="btn btn-primary btn-lg" href="/campgrounds/new">Add a New Campground</a>
+			</p>
+		</div>
+	</header>
+
+	
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<% campgrounds.forEach(function(campground){ %>
+			<div class="col-sm-6">
+				<div class="img-thumbnail">
+					<img src="<%= campground.image %>">
+					<div class="caption">
+						<h4><%= campground.name %></h4>
+					</div>
+					<P>
+						<a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+					</P>
+				</div>
+			</div>
+		<% }); %>
+	</div>
+</div>
+
+
+<% include partials/footer %>
